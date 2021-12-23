@@ -308,8 +308,8 @@ def update_graph(event):
     data = df[['w_new','new_avgdist', 'dist_std', 'bin_event']]
     if event!='All':
         data = data[data['bin_event']==event]
-    x = data['w_new'].values.reshape(-1,1)
-    y = data['new_avgdist'].values
+    x = data['new_avgdist'].values.reshape(-1,1)
+    y = data['w_new'].values
     x_train, x_test,y_train,y_test = train_test_split(x,y,test_size =0.3)
     lasso = linear_model.Lasso(alpha=0.1)
     lasso.fit(x_train,y_train)
@@ -321,7 +321,7 @@ def update_graph(event):
     
     rmse_c = "Root mean squared error: {}".format(rmse)
     rscore_c = "Coefficient of determination (R2 score): {}".format(rscore)
-    coef_c = "Gradient (approximate depth decrease in cm per kg of trash): {}".format(coef)
+    coef_c = "Gradient: {}".format(coef)
     int_c = "Intercept: {}".format(intercept)
     x_train = x_train.reshape(1,-1)[0]
     x_test = x_test.reshape(1,-1)[0]
