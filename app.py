@@ -261,7 +261,7 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div([
     html.H1("Household Bin Use", style={'text-align':'center', 'font-family': 'Verdana', 'font-style':'bold'}),
-    html.Div("what is this project lol",style={'text-align':'center', 'font-family': 'Verdana'}),
+    html.Div("Tracking the weight and fill level of the flat's kitchen bin",style={'text-align':'center', 'font-family': 'Verdana'}),
     # All elements from the top of the page
     html.Div([
         html.H2("Correlation between Bin Weight and Trash Depth", style={'font-family': 'Verdana'}),
